@@ -12,7 +12,7 @@ const EditTodo = ({ todo }: { todo: todoProps }) => {
   const [editTodoState, setEditTodoState] = useState(false);
 
   const handleEdit = () => {
-    if (todo.isCompleted) {
+    if (todo.isComplete) {
       return;
     }
     setEditTodoState(!editTodoState);

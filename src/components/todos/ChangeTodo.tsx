@@ -13,7 +13,7 @@ const ChangeTodo = ({ todo }: { todo: todoProps }) => {
           text={<FaCheck />}
           type="submit"
           actionButton
-          bgColor={todo.isCompleted ? "bg-green-400" : "bg-blue-500"} // ใช้ isCompleted
+          bgColor={todo.isComplete ? "bg-green-400" : "bg-blue-500"}
         ></Button>
       </form>
     );

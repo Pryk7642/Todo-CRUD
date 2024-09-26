@@ -6,8 +6,8 @@ import DeleteTodo from "./DeleteTodo";
 
 const Todo = ({ todo }: { todo: todoProps }) => {
   const todoStyle = {
-  textDecoration: todo.isCompleted ? "line-through" : "none",
-  opacity: todo.isCompleted ? 0.5 : 1,
+  textDecoration: todo.isComplete ? "line-through" : "none",
+  opacity: todo.isComplete ? 0.5 : 1,
 };
 
   return (

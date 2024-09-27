@@ -27,12 +27,13 @@ const EditTodo = ({ todo }: { todo: todoProps }) => {
       <Button onClick={handleEdit} text={<MdEdit />} actionButton />
       {editTodoState ? (
         <Form action={actions.editTodo} onSubmit={handleSubmit}>
-          <Input name="inputId" value={todo.id} type="hidden"></Input>
-          <div className="flex justify-center ">
-            <Input type="text" name="newTitle" placeholder="Edit Todo..." />
-            <Button type="submit" text="save"></Button>
-          </div>
-        </Form>
+        <Input name="inputId" value={todo.id} type="hidden"></Input>
+        <div className="flex flex-col justify-center">
+          <Input type="text" name="newTitle" placeholder="Edit Title..." />
+          <Input type="text" name="newDescription" placeholder="Edit Description..." />
+          <Button type="submit" text="Save"></Button>
+        </div>
+      </Form>
       ) : null}
     </div>
   );

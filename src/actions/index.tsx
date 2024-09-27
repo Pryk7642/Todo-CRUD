@@ -4,14 +4,17 @@ import { prisma } from "@/utils/prisma";
 import { revalidatePath } from "next/cache";
 
 export async function createTodo(formData: FormData) {
-  const input = formData.get("input") as string;
-  if (!input.trim()) {
+  const title = formData.get("title") as string;
+  const description = formData.get("description") as string;
+
+  if (!title.trim()) {
     return;
   }
 
   await prisma.todo.create({
     data: {
-      title: input,
+      title,
+      description,
     },
   });
 
@@ -41,21 +44,23 @@ export async function changeStatus(formData: FormData) {
   }
   
 
-export async function editTodo(formData: FormData) {
-  const newTitle = formData.get("newTitle") as string;
-  const inputId = formData.get("inputId") as string;
-
-  await prisma.todo.update({
-    where: {
-      id: inputId,
-    },
-    data: {
-      title: newTitle,
-    },
-  });
-
-  revalidatePath("/");
-}
+  export async function editTodo(formData: FormData) {
+    const newTitle = formData.get("newTitle") as string;
+    const newDescription = formData.get("newDescription") as string;
+    const inputId = formData.get("inputId") as string;
+  
+    await prisma.todo.update({
+      where: {
+        id: inputId,
+      },
+      data: {
+        title: newTitle,
+        description: newDescription,
+      },
+    });
+  
+    revalidatePath("/");
+  }
 
 export async function deleteTodo(formData: FormData) {
   const inputId = formData.get("inputId") as string;

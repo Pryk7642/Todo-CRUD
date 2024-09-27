@@ -8,7 +8,8 @@ const AddTodo = () => {
     <div>
       <Form action={actions.createTodo}>
         <div className="flex gap-4 items-center">
-          <Input name="input" type="text" placeholder="Add Note Work ..." />
+          <Input name="title" type="text" placeholder="Add Title ..." />
+          <Input name="description" type="text" placeholder="Add Description ..." />
           <Button type="submit" text="Add" bgColor="bg-blue-600" />
         </div>
       </Form>

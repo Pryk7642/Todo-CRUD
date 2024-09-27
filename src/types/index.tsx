@@ -25,6 +25,7 @@ export interface buttonProps {
 export interface todoProps {
   id: string;
   title?: string | null;
+  description?: string | null;  // Add this line
   isComplete: boolean;
   createdAt?: Date;
 }

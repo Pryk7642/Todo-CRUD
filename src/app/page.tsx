@@ -6,6 +6,7 @@ async function getData() {
   const data = await prisma.todo.findMany({
     select: {
       title: true,
+      description: true,  // Add this line
       id: true,
       isComplete: true,
     },
